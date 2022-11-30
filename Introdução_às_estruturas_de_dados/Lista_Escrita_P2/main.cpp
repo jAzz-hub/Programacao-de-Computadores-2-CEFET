@@ -17,8 +17,6 @@
 
 #include <queue>
 #include<vector>
-#include <stdlib.h>
-#include <algorithm>
 
 using namespace std;
 
@@ -48,24 +46,24 @@ int main(int argc, char *argv[])
         if(cin.fail())
         {
             do
+            {
+                cin>>escolha;
+        
+                if(cin.fail())
                 {
-                    cin>>escolha;
-            
-                    if(cin.fail())
-                    {
-                        cout<<"Digite um escolha válida!"<<end;
-                        erro=1;
-                        cin.clear();
-                        cin.ignore(80,'\n');
-                    }
-                    else
-                    {
-                        erro=0;
-                        break;
-                        cout<<end;
-                    }
+                    cout<<"Digite um escolha válida!"<<end;
+                    erro=1;
+                    cin.clear();
+                    cin.ignore(80,'\n');
+                }
+                else
+                {
+                    erro=0;
+                    break;
+                    cout<<end;
+                }
 
-                }while(erro=1);
+            }while(erro==1);
         }
 
         switch(escolha){
@@ -79,7 +77,7 @@ int main(int argc, char *argv[])
                 {
                     cout<<"idade: ";
                     cin>>idade;
-                    if(cin.fail())
+                    if(cin.fail() || idade<=0)
                     {
                         cout<<"Idade inválida inseria, favor reinserir a idade!"<<end;
                         idade = 0;
